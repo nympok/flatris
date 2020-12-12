@@ -10,6 +10,6 @@ before_script:
 build:
   script:
     - docker pull $CI_REGISTRY/nympok/skillbox
-    - docker build --tag $CI_REGISTRY/nympok/skillbox:$CI_BUILD_REF --tag $CI_REGISTRY/nympok/skillbox:latest .
+    - docker build --cache-from $CI_REGISTRY/nympok/skillbox --tag $CI_REGISTRY/nympok/skillbox:$CI_BUILD_REF --tag $CI_REGISTRY/nympok/skillbox:latest .
     - docker push $CI_REGISTRY/nympok/skillbox:$CI_BUILD_REF
     - docker push $CI_REGISTRY/nympok/skillbox:latest
